@@ -105,5 +105,5 @@ refresh_item_buttons(item_frame, mon)
 master.mainloop()
 
 # clean up
-door_button.stop
+door_button.stop()
 
