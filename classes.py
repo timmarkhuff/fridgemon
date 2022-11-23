@@ -1,14 +1,17 @@
 from tkinter import PhotoImage
-from datetime import date, timedelta
+from datetime import datetime, timedelta
 import random
 from time import sleep
 from threading import Thread
 import platform
 
+# OS-specific imports and initializations
 OS = platform.system()
 if OS == 'Linux':
     import gpiozero
     rpi_button = gpiozero.Button(4)
+else:
+    import keyboard
 
 FOOD_LABELS = ['Steak', 'Cake', 'Salmon', 'Xiao Long Bao', 'Spaghetti',
             'Linguine', 'Bulgogi', 'Stew', 'Halibut', 'Burger', 'Gumbo',
@@ -42,7 +45,7 @@ class FridgeMon:
                     label = random.choice(FOOD_LABELS)
 
                     # choose a random start_date
-                    today = date.today()
+                    today = datetime.today()
                     rand_time_delta = timedelta(days = random.randint(0,5))
                     start_date = today - rand_time_delta
 
@@ -57,7 +60,7 @@ class FridgeMon:
                     tag.remove_from_fridge()
                     removed.append(tag)
                 else:
-                    tag.add_to_fridge(date.today())
+                    tag.add_to_fridge(datetime.today())
                     added.append(tag)
         return removed, added
 
@@ -72,7 +75,7 @@ class Tag:
         self.label: str = ''    
         self.is_in_fridge: bool = False
 
-    def add_to_fridge(self, start_date: date, label: str = None) -> None:
+    def add_to_fridge(self, start_date: datetime, label: str = None) -> None:
         self.is_in_fridge = True
         self.label = label
         self.start_date = start_date
@@ -94,9 +97,8 @@ class Tag:
         return self.icon
 
     def get_days_in_fridge(self):
-        today = date.today()
+        today = datetime.today()
         return (today - self.start_date).days
-
 
 class DoorButton:
     def __init__(self, status_label, cbk_funcs):
@@ -115,10 +117,7 @@ class DoorButton:
                     # for RPI
                     self.position = rpi_button.is_pressed
                 else:
-                    if x == 0:
-                        self.position = 0
-                    elif x % 50 == 0 or x % 60 == 0:
-                        self.position = not self.position
+                    self.position = keyboard.is_pressed('o')
                     
                 # update the list of positions
                 self.positions.append(self.position)
