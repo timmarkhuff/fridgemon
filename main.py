@@ -1,7 +1,9 @@
 from tkinter import Tk, Frame, Label, Button, LEFT, RIGHT
 from classes import FridgeMon, Tag, DoorButton
 
+BG = "#FEF9EF"
 master = Tk()
+master.configure(bg=BG)
 title = 'FridgeMon'
 master.title(title)
 SCREEN_WIDTH = 800
@@ -9,12 +11,12 @@ SCREEN_HEIGHT = 400
 master.geometry(f"{SCREEN_WIDTH}x{SCREEN_HEIGHT}")
 
 # define some frames and labels
-title_frame = Frame(master, padx=10)
-title_label = Label(title_frame, text='FridgeMon', font=('Inter', 30))
-status_label = Label(title_frame, text='Door Closed', fg = "#84BD93", font=('Inter', 20), padx=10)
+title_frame = Frame(master, padx=10, bg=BG)
+title_label = Label(title_frame, text='FridgeMon', font=('Inter', 30), bg=BG)
+status_label = Label(title_frame, text='Door Closed', fg = "#84BD93", font=('Inter', 20), padx=10, bg=BG)
 text = 'Reduce waste and take control of your fridge!'
-tagline_label = Label(title_frame, text=text, font=('Inter', 12), padx=20)
-item_frame = Frame(master, padx=10)
+tagline_label = Label(title_frame, text=text, font=('Inter', 12), padx=20, bg=BG)
+item_frame = Frame(master, padx=10, bg=BG)
 
 # grid the frames and labels
 title_frame.grid(row=0, column=0, sticky='w')
@@ -34,7 +36,8 @@ def refresh_item_buttons(item_frame: Frame, mon: FridgeMon):
     # re-grid the buttons 
     tags_in_fridge = [tag for tag in mon.tags.values() if tag.is_in_fridge]
     if not tags_in_fridge:
-        empty_label = Label(item_frame, 'No items found in fridge.', font=('Inter', 12), padx=20)
+        text='No items found in fridge.'
+        empty_label = Label(item_frame, text=text, font=('Inter', 12), padx=20)
         empty_label.grid(row=0, column=0)
 
     tags_in_fridge.sort(key=lambda tag: tag.start_date, reverse=False)

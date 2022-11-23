@@ -3,6 +3,12 @@ from datetime import date, timedelta
 import random
 from time import sleep
 from threading import Thread
+import platform
+
+OS = platform.system()
+if OS == 'Linux':
+    import gpiozero
+    rpi_button = gpiozero.Button(4)
 
 FOOD_LABELS = ['Steak', 'Cake', 'Salmon', 'Xiao Long Bao', 'Spaghetti',
             'Linguine', 'Bulgogi', 'Stew', 'Halibut', 'Burger', 'Gumbo',
@@ -105,10 +111,16 @@ class DoorButton:
             x = 0
             while self.run:
                 sleep(.1)
-                if x == 0:
-                    self.position = 0
-                elif x % 50 == 0 or x % 60 == 0:
-                    self.position = not self.position
+                if OS == 'Linux':
+                    # for RPI
+                    self.position = rpi_button.is_pressed
+                else:
+                    if x == 0:
+                        self.position = 0
+                    elif x % 50 == 0 or x % 60 == 0:
+                        self.position = not self.position
+                    
+                # update the list of positions
                 self.positions.append(self.position)
                 self.positions = self.positions[1:]
 
