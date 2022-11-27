@@ -1,13 +1,21 @@
-from tkinter import Tk, Frame, Label, Button, LEFT, RIGHT
+from tkinter import Tk, Frame, Label, Button, LEFT, RIGHT, HORIZONTAL
+from tkinter.ttk import Progressbar
 from logic import FridgeMon, DoorButton, FOOD_LABELS
 from threading import Thread
 from time import sleep
 
+# colors
+RED = '#dc1f1f'
+GREEN = '#84BD93'
 BG = "#FEF9EF"
 TEXT_COLOR = '#73665C'
+BUTTON_BACKGROUND = '#F5D3BB'
+TEXT_COLOR = '#514e4e'
+
+# screen parameters
 SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 400
-REFRESH_TIME = 60 # seconds
+SCREEN_HEIGHT = 420
+REFRESH_TIME = 30 # seconds
 
 class UI:
     def __init__(self, mon: FridgeMon):
@@ -27,6 +35,8 @@ class UI:
         self.start_item_screen()
 
     def start_item_screen(self):
+        self.active_screen = 'items'
+
         # define some frames and labels
         self.main_frame = Frame(self.master, padx=10, bg=BG)
         self.title_frame = Frame(self.main_frame, padx=10, bg=BG)
@@ -37,40 +47,72 @@ class UI:
         self.item_frame = Frame(self.main_frame, padx=10, bg=BG)
 
         # grid the frames and labels
-        self.main_frame.grid(row=0, column=0, sticky='w')
-        self.title_frame.grid(row=0, column=0, sticky='w')
-        self.title_label.grid(row=0, column=0, sticky='w')
-        self.status_label.grid(row=0, column=1, sticky='w')
-        self.tagline_label.grid(row=1, column=0, sticky='w')
-        self.item_frame.grid(row=1, column=0, sticky='w')
+        self.main_frame.grid(row=0, column=0, sticky='nw')
+        self.title_frame.grid(row=0, column=0, sticky='nw')
+        self.title_label.grid(row=0, column=0, sticky='nw')
+        self.status_label.grid(row=0, column=1, sticky='nw')
+        self.tagline_label.grid(row=1, column=0, sticky='nw')
+        self.item_frame.grid(row=1, column=0, sticky='nw')
+
+        self.refresh_item_buttons()
 
     def start_label_screen(self, tag):
+        self.active_screen = 'label'
+
         # clear the screen
         for i in self.main_frame.winfo_children():
             i.destroy()
 
-        # create some labels
+        # create some frames and labels labels
         self.main_frame = Frame(self.master, padx=10, bg=BG)
-        text = f'Select a label for {tag.name}'
-        self.icon_label = Label(self.main_frame, text=text)
+        self.top_frame = Frame(self.main_frame, padx=10, bg=BG)
+        self.bottom_frame = Frame(self.main_frame, bg=GREEN)
+        self.left_bottom_frame = Frame(self.bottom_frame, bg=RED)
+        self.right_bottom_frame = Frame(self.bottom_frame, padx=10, bg=TEXT_COLOR)
 
-        # grid the labels
-        self.main_frame.grid(row=0, column = 0)
-        self.icon_label.grid(row=0, column = 0)
+        text = f'Label {tag.name}'
+        font = ('Inter', 20, 'bold')
+        self.label_page_heading = Label(self.top_frame, text=text, font=font, bg=BG, fg=TEXT_COLOR)
+        self.icon_label = Button(self.left_bottom_frame, 
+                                image=tag.get_icon(), 
+                                bg=GREEN,
+                                )
 
-        row = 1
+        # grid the frames and labels
+        self.main_frame.grid(row=0, column=0, sticky='nsew')
+        self.top_frame.grid(row=0, column=0, sticky='nsew')
+        self.bottom_frame.grid(row=1, column=0, sticky='nsew')
+        self.left_bottom_frame.grid(row=0, column=0, sticky='nsew')
+        self.right_bottom_frame.grid(row=0, column=1, sticky='nsew')
+        self.label_page_heading.grid(row=0, column=0, sticky='nsew')
+        self.icon_label.grid(row=0, column=0, sticky='nsew')
+
+        row = 0
+        column = 0
         for label in FOOD_LABELS:
-            button = Button(self.main_frame, 
+            button = Button(self.right_bottom_frame, 
                             text=label,
                             font=('Inter', 12),
-                            background='#F5D3BB',
-                            width=15,
+                            background=BUTTON_BACKGROUND,
+                            activebackground=BUTTON_BACKGROUND,
+                            foreground=TEXT_COLOR,
+                            activeforeground=TEXT_COLOR,
+                            width=17,
                             command = lambda tag=tag, label=label: self.click_label_button(tag, label)
                             )
-            button.grid(row=row, column=0, sticky='nsew')
-            row += 1
+            button.grid(row=row, column=column, sticky='nsew')
+            if row == 10:
+                row = 0
+                column += 1
+            else:
+                row += 1
 
     def refresh_item_buttons(self):
+        # check if the active screen is the items screen
+        # if not, there is nothing to refresh, so do nothing
+        if self.active_screen != 'items':
+            return
+
         # clear the current contents of the frame
         for button in self.item_frame.winfo_children():
             button.destroy()
@@ -112,22 +154,24 @@ class UI:
 
             # color for the text
             if days_in_fridge < 4:
-                foreground='#514e4e'
+                foreground = TEXT_COLOR
             else:
-                foreground='#dc1f1f'
+                foreground = RED
 
             # background color of the button
             if tag in show_first:
-                color = '#84BD93'
+                color = GREEN
             else:
-                color = '#F5D3BB'
+                color = BUTTON_BACKGROUND
 
             # create the food item button
             button = Button(self.item_frame, 
                             image=tag.get_icon(), 
                             text=button_text,
                             background=color,
+                            activebackground=color,
                             foreground=foreground,
+                            activeforeground=foreground,
                             font=('Inter', 15, 'bold'),
                             compound=RIGHT,
                             padx=10,
@@ -147,10 +191,39 @@ class UI:
                 column += 1
 
     def click_label_button(self, tag, label:str):
-        self.main_frame.destroy()
         tag.label_contents(label)
+        self.return_to_item_screen()        
+
+    def return_to_item_screen(self):
+        self.main_frame.destroy()
         self.start_item_screen()
         self.refresh_item_buttons()
+
+    def show_open(self):
+        text = "Door Open"
+        fg = RED
+        self.status_label.config(text=text, fg=fg)
+        
+    def show_closed(self):
+        if self.active_screen != 'items':
+            return
+        text = "Door Closed" 
+        fg = GREEN
+        self.status_label.config(text=text, fg=fg)
+
+    def start_progress_bar(self):
+        text = "Scanning" 
+        fg = TEXT_COLOR
+        self.status_label.config(text=text, fg=fg)
+
+        self.progress_bar = Progressbar(self.title_frame, orient=HORIZONTAL, length=200, mode='indeterminate')
+        self.progress_bar.grid(row=0, column=2, padx=10)
+        self.progress_bar.start(2)
+
+    def stop_progress_bar(self):
+        if self.active_screen != 'items':
+            return
+        self.progress_bar.grid_forget()
 
     def start_timer(self):
         freq = .1 # seconds
@@ -173,11 +246,9 @@ mon = FridgeMon()
 ui = UI(mon)
 door_button = DoorButton(ui, mon)
 
-ui.refresh_item_buttons()
 door_button.start()
 ui.mainloop()
 
 # clean up
 ui.stop()
 door_button.stop()
-

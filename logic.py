@@ -14,12 +14,19 @@ if OS == 'Linux':
 else:
     import keyboard
 
-SECONDS_PER_DAY = 30 # num of actual seconds per simulated day
-FOOD_LABELS = ['Steak', 'Cake', 'Salmon', 'Xiao Long Bao', 'Spaghetti',
+# constants
+SECONDS_PER_DAY = 60 # num of actual seconds per simulated day
+FOOD_LABELS = ['Steak', 'Cake', 'Salmon', 'Spaghetti',
             'Linguine', 'Bulgogi', 'Stew', 'Halibut', 'Burger', 'Gumbo',
-            'Chow Mein', 'Pork Chop', 'Soup', 'Sushi', 'Chicken Parm',
-            'Lasagna', 'Fajita', 'Tacos', 'Carne Asada', 'Fried Rice',
-            'Pancakes', 'Rice Cakes']
+            'Chow Mein', 'Pho', 'Soup', 'Sushi', 'Chicken Parm',
+            'Lasagna', 'Fajitas', 'Tacos', 'Carne Asada', 'Fried Rice',
+            'Pancakes', 'Rice Cakes', 'Burrito', 'Enchiladas', 'Quesadilla',
+            'Pork Chop', 'Ravioli', 'Dumplings', 'Pot Stickers', 'Pizza',
+            'Japchae', 'Bibimbap', 'Gyro', 'Biryani', 'Samosa', 'Tikka Masala',
+            'Naengmyeon', 'Palak Paneer', 'Korma', 'Menudo', 'Udon', 'Tempura',
+            'Gyudon', 'Sashimi']
+
+FOOD_LABELS.sort()
 
 def simulate_today():
     """
@@ -68,6 +75,9 @@ class FridgeMon:
                     tag.remove_from_fridge()
                 else:
                     tag.add_to_fridge(simulate_today())
+
+        # sleep a random amount of time to simulate scanning
+        sleep(random.randint(1,2))
 
 class Tag:
     def __init__(self, fm, id: int, name: str, color: str, icon_path: str):
@@ -142,19 +152,24 @@ class DoorButton:
                 self.positions.append(self.position)
                 self.positions = self.positions[1:]
 
-                if self.positions[0] == 0 and self.positions[1] == 1:
-                    text = "Door Open"
-                    fg = "#FF0000" # red
-                    self.ui.status_label.config(text=text, fg=fg)
-                if self.positions[0] == 1 and self.positions[1] == 0:
-                    text = "Door Closed" # green
-                    fg = "#84BD93"
-                    self.ui.status_label.config(text=text, fg=fg)
+                door_opened = (self.positions[0] == 0 and self.positions[1] == 1)
+                door_closed = (self.positions[0] == 1 and self.positions[1] == 0)
+
+                if door_opened or door_closed:
+                    if self.ui.active_screen == 'label':
+                        self.ui.return_to_item_screen()
+                    else:
+                        self.ui.refresh_item_buttons()
+                if door_opened:
+                    self.ui.show_open()
+                elif door_closed:
+                    self.ui.start_progress_bar()
                     self.mon.scan_contents_simulated()
+                    self.ui.stop_progress_bar()
+                    self.ui.show_closed()
                     self.ui.refresh_item_buttons()
                 x += 1
         Thread(target=thread).start()
 
     def stop(self):
         self.run = False
-
