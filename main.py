@@ -17,7 +17,7 @@ LIGHT_BROWN = '#73665C'
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 420
 REFRESH_TIME = 30 # seconds
-ITEM_BUTTON_WIDTH = 232
+ITEM_BUTTON_WIDTH = 228
 
 class UI:
     def __init__(self, mon: FridgeMon):
@@ -60,6 +60,7 @@ class UI:
 
     def start_label_screen(self, tag):
         self.active_screen = 'label'
+        self.progress_bar = None
 
         # clear the screen
         for i in self.main_frame.winfo_children():
@@ -99,7 +100,7 @@ class UI:
                                     text='Back',
                                     height=3,
                                     font=('Inter', 16),
-                                    width=19,
+                                    width=14,
                                     command=lambda self=self: self.return_to_item_screen(),
                                     ) 
 
@@ -134,7 +135,7 @@ class UI:
                             activebackground=BUTTON_BACKGROUND,
                             foreground=TEXT_COLOR,
                             activeforeground=TEXT_COLOR,
-                            width=22,
+                            width=19,
                             height=2,
                             command = lambda tag=tag, label=label: self.click_label_button(tag, label)
                             )
@@ -262,7 +263,7 @@ class UI:
         self.progress_bar.start(2)
 
     def stop_progress_bar(self):
-        if self.active_screen != 'items':
+        if self.active_screen != 'items' or self.progress_bar is None:
             return
         self.progress_bar.grid_forget()
 
