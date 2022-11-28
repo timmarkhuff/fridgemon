@@ -15,16 +15,16 @@ else:
     import keyboard
 
 # constants
-SECONDS_PER_DAY = 60 # num of actual seconds per simulated day
+SECONDS_PER_DAY = 30 # num of actual seconds per simulated day
 FOOD_LABELS = ['Steak', 'Cake', 'Salmon', 'Spaghetti',
             'Linguine', 'Bulgogi', 'Stew', 'Halibut', 'Burger', 'Gumbo',
-            'Chow Mein', 'Pho', 'Soup', 'Sushi', 'Chicken Parm',
-            'Lasagna', 'Fajitas', 'Tacos', 'Carne Asada', 'Fried Rice',
-            'Pancakes', 'Rice Cakes', 'Burrito', 'Enchiladas', 'Quesadilla',
-            'Pork Chop', 'Ravioli', 'Dumplings', 'Pot Stickers', 'Pizza',
-            'Japchae', 'Bibimbap', 'Gyro', 'Biryani', 'Samosa', 'Tikka Masala',
-            'Naengmyeon', 'Palak Paneer', 'Korma', 'Menudo', 'Udon', 'Tempura',
-            'Gyudon', 'Sashimi']
+            'Chow Mein', 'Pho'] #, 'Soup', 'Sushi', 'Chicken Parm',
+            # 'Lasagna', 'Fajitas', 'Tacos', 'Carne Asada', 'Fried Rice',
+            # 'Pancakes', 'Rice Cakes', 'Burrito', 'Enchiladas', 'Quesadilla',
+            # 'Pork Chop', 'Ravioli', 'Dumplings', 'Pot Stickers', 'Pizza',
+            # 'Japchae', 'Bibimbap', 'Gyro', 'Biryani', 'Samosa', 'Tikka Masala',
+            # 'Naengmyeon', 'Palak Paneer', 'Korma', 'Menudo', 'Udon', 'Tempura',
+            # 'Gyudon', 'Sashimi']
 
 FOOD_LABELS.sort()
 
@@ -65,12 +65,11 @@ class FridgeMon:
                     rand_time_delta = timedelta(days = random.randint(0,5))
                     start_date = today - rand_time_delta
 
-                    tag.add_to_fridge(start_date, label)
-                    self.tags[id].is_labeled = True
+                    tag.stock_fridge(start_date, label)
 
     def scan_contents_simulated(self) -> tuple:
         for tag in self.tags.values():
-            if not random.randint(0,3):
+            if not random.randint(0,2):
                 if tag.is_in_fridge:
                     tag.remove_from_fridge()
                 else:
@@ -87,24 +86,43 @@ class Tag:
         self.color: str = color
         self.icon_path: str = icon_path
         self.icon: PhotoImage = None
-        self.label: str = ''    
+        self.label: str = None
+        self.previous_label: str = None
+        self.start_date = None
+        self.previous_start_date = None
         self.is_in_fridge = False
-        self.is_labeled = False
 
-    def add_to_fridge(self, start_date: datetime, label: str = None) -> None:
+    def stock_fridge(self, start_date: datetime, label:str):
         self.is_in_fridge = True
         self.label = label
+        self.previous_label = label
+        self.start_date = start_date
+        self.previous_start_date = start_date
+        self.start_time = timer()
+
+    def add_to_fridge(self, start_date: datetime) -> None:
+        self.is_in_fridge = True
         self.start_date = start_date
         self.start_time = timer()
-        self.is_labeled = False
+        self.unlabel()
 
     def remove_from_fridge(self) -> None:
+        self.previous_start_date = self.start_date
         self.is_in_fridge = False
-        self.is_labeled = False
 
     def label_contents(self, label:str) -> None:
-        self.label: str = label
-        self.is_labeled = True
+        self.label = label
+
+    def keep_as_last(self):
+        self.label = self.previous_label
+        self.start_date = self.previous_start_date
+
+    def unlabel(self):
+        self.previous_label = self.label
+        self.label = None
+
+    def is_labeled(self):
+        return self.label is not None
 
     def get_icon(self):
         """
@@ -122,6 +140,13 @@ class Tag:
         """
         today = simulate_today()
         return (today - self.start_date).days
+
+    def get_previous_days_in_fridge(self):
+        """
+        simulated days that the previous contents spent in the fridge
+        """
+        today = simulate_today()
+        return (today - self.previous_start_date).days
 
     def get_seconds_in_fridge(self):
         """
