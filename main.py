@@ -8,7 +8,6 @@ from time import sleep
 RED = '#dc1f1f'
 GREEN = '#84BD93'
 BG = "#FEF9EF"
-TEXT_COLOR = '#73665C'
 BUTTON_BACKGROUND = '#F5D3BB'
 TEXT_COLOR = '#514e4e'
 LIGHT_BROWN = '#73665C'
