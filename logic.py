@@ -177,8 +177,8 @@ class DoorButton:
                 self.positions.append(self.position)
                 self.positions = self.positions[1:]
 
-                door_opened = (self.positions[0] == 0 and self.positions[1] == 1)
-                door_closed = (self.positions[0] == 1 and self.positions[1] == 0)
+                door_opened = (self.positions[0] == 1 and self.positions[1] == 0)
+                door_closed = (self.positions[0] == 0 and self.positions[1] == 1)
 
                 if door_opened or door_closed:
                     if self.ui.active_screen == 'label':
