@@ -16,9 +16,12 @@ else:
 
 # constants
 SECONDS_PER_DAY = 30 # num of actual seconds per simulated day
-FOOD_LABELS = ['Steak', 'Cake', 'Salmon', 'Spaghetti',
+FOOD_LABELS = sorted(['Steak', 'Cake', 'Salmon', 'Spaghetti',
             'Linguine', 'Bulgogi', 'Stew', 'Halibut', 'Burger', 'Gumbo',
-            'Chow Mein', 'Pho'] #, 'Soup', 'Sushi', 'Chicken Parm',
+            'Chow Mein', 'Pho']) # sort food labels alphabetically
+
+            #### Extra Labels ####
+            #, 'Soup', 'Sushi', 'Chicken Parm',
             # 'Lasagna', 'Fajitas', 'Tacos', 'Carne Asada', 'Fried Rice',
             # 'Pancakes', 'Rice Cakes', 'Burrito', 'Enchiladas', 'Quesadilla',
             # 'Pork Chop', 'Ravioli', 'Dumplings', 'Pot Stickers', 'Pizza',
@@ -26,16 +29,18 @@ FOOD_LABELS = ['Steak', 'Cake', 'Salmon', 'Spaghetti',
             # 'Naengmyeon', 'Palak Paneer', 'Korma', 'Menudo', 'Udon', 'Tempura',
             # 'Gyudon', 'Sashimi']
 
-FOOD_LABELS.sort()
-
 def simulate_today():
     """
-    simulates the passage of time at a faster rate
+    Simulates the passage of time at a faster rate
     for simulation purposes
     """
     return datetime.today() + timedelta(days=timer()/SECONDS_PER_DAY)
 
 class FridgeMon:
+    """
+    Contains the logic and tracks the internal state
+    of the FridgeMon system
+    """
     def __init__(self):
         # create Tag objects from csv
         self.tags = {}
@@ -43,18 +48,18 @@ class FridgeMon:
             lines = f.readlines()
             lines = lines[1:] # remove the column header
             for line in lines:
-                line_split = line.split(',')
-                id = line_split[0]
-                name = line_split[1]
-                color = line_split[2]
-                icon_path = line_split[3]
-                tag = Tag(self, id, name, color, icon_path)
-                self.tags[id] = tag
-                
                 # skip empty rows
                 if line[0] == ',':
                     continue
 
+                # create a Tag object
+                line_split = line.split(',')
+                id = line_split[0]
+                name = line_split[1]
+                icon_path = line_split[2]
+                tag = Tag(id, name, icon_path)
+                self.tags[id] = tag
+                
                 # randomly label some tags as being in fridge
                 if random.randint(0,2):
                     # choose a random food label
@@ -67,7 +72,12 @@ class FridgeMon:
 
                     tag.stock_fridge(start_date, label)
 
-    def scan_contents_simulated(self) -> tuple:
+    def scan_contents_simulated(self):
+        """"
+        Randomly adds and removes tags from the fridge for demo purposes.
+        Eventually, this would be replaced by a function that actually scans for
+        RFID tags in the fridge and adds/removes tags accordingly.   
+        """
         for tag in self.tags.values():
             if not random.randint(0,2):
                 if tag.is_in_fridge:
@@ -79,12 +89,13 @@ class FridgeMon:
         sleep(random.randint(1,2))
 
 class Tag:
-    def __init__(self, fm, id: int, name: str, color: str, icon_path: str):
-        self.fm: FridgeMon = fm
-        self.id: int = id
-        self.name: str = name
-        self.color: str = color
-        self.icon_path: str = icon_path
+    """
+    A class for the RFID tags that are attached to the food containers
+    """
+    def __init__(self, id: int, name: str, icon_path: str):
+        self.id = id
+        self.name = name
+        self.icon_path = icon_path
         self.icon: PhotoImage = None
         self.label: str = None
         self.previous_label: str = None
@@ -93,6 +104,12 @@ class Tag:
         self.is_in_fridge = False
 
     def stock_fridge(self, start_date: datetime, label:str):
+        """
+        For demo purposes.
+        When the program starts, this method can be used to stock the fridge 
+        with items that were already in the fridge. Items will be assigned a label and a 
+        start date.
+        """
         self.is_in_fridge = True
         self.label = label
         self.previous_label = label
@@ -101,6 +118,9 @@ class Tag:
         self.start_time = timer()
 
     def add_to_fridge(self, start_date: datetime) -> None:
+        """
+        When a tag is detected in the fridge, add it.
+        """
         self.is_in_fridge = True
         self.start_date = start_date
         self.start_time = timer()
@@ -111,9 +131,17 @@ class Tag:
         self.is_in_fridge = False
 
     def label_contents(self, label:str) -> None:
+        """
+        Labels the contents of a tag
+        """
         self.label = label
 
     def keep_as_last(self):
+        """
+        Keeps the contents of the tag the same as the last time
+        the tag as in the fridge. Also preserves the start date
+        from the previous fridge visit.
+        """
         self.label = self.previous_label
         self.start_date = self.previous_start_date
 
@@ -126,7 +154,7 @@ class Tag:
 
     def get_icon(self):
         """
-        returns the icon for the tag
+        Returns the icon for the tag
         if the icon hasn't already been read from the filepath,
         then it will be read
         """
@@ -136,25 +164,28 @@ class Tag:
 
     def get_days_in_fridge(self):
         """
-        simulated days
+        Simulated days
         """
         today = simulate_today()
         return (today - self.start_date).days
 
     def get_previous_days_in_fridge(self):
         """
-        simulated days that the previous contents spent in the fridge
+        Simulated days that the previous contents spent in the fridge
         """
         today = simulate_today()
         return (today - self.previous_start_date).days
 
     def get_seconds_in_fridge(self):
         """
-        actual seconds
+        Actual seconds
         """
         return timer() - self.start_time 
 
 class DoorButton:
+    """
+    A class for tracking the state of the fridge door (open/closed)
+    """
     def __init__(self, ui, mon):
         self.ui = ui
         self.mon = mon
@@ -163,6 +194,10 @@ class DoorButton:
         self.positions = [0,0]
 
     def start(self):
+        """
+        Spawn a new thread that keeps track of the position of the door (open/closed).
+        Triggers the scanning method when the door closes, updates the UI accordingly. 
+        """
         def thread():
             x = 0
             while self.run:
@@ -179,6 +214,11 @@ class DoorButton:
 
                 door_opened = (self.positions[0] == 1 and self.positions[1] == 0)
                 door_closed = (self.positions[0] == 0 and self.positions[1] == 1)
+
+                # Reverse door_opened/door_closed when not on Raspberry Pi
+                # This makes for a better demo on PC
+                if OS != 'Linux':
+                    door_closed, door_opened = door_opened, door_closed
 
                 if door_opened or door_closed:
                     if self.ui.active_screen == 'label':
@@ -197,4 +237,7 @@ class DoorButton:
         Thread(target=thread).start()
 
     def stop(self):
+        """
+        A clean-up function to stop the thread
+        """
         self.run = False

@@ -1,10 +1,10 @@
 from tkinter import Tk, Frame, Label, Button, LEFT, RIGHT, HORIZONTAL
 from tkinter.ttk import Progressbar
-from logic import FridgeMon, DoorButton, FOOD_LABELS
+from logic import FridgeMon, DoorButton, Tag, FOOD_LABELS
 from threading import Thread
 from time import sleep
 
-# colors
+# Colors
 RED = '#dc1f1f'
 GREEN = '#84BD93'
 BG = "#FEF9EF"
@@ -12,13 +12,16 @@ BUTTON_BACKGROUND = '#F5D3BB'
 TEXT_COLOR = '#514e4e'
 LIGHT_BROWN = '#73665C'
 
-# screen parameters
+# Screen parameters
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 420
-REFRESH_TIME = 30 # seconds
+REFRESH_TIME = 30 # seconds, rate at which the gui updates
 ITEM_BUTTON_WIDTH = 228
 
 class UI:
+    """"
+    Produces the graphical user interface for FridgeMon
+    """
     def __init__(self, mon: FridgeMon):
         self.mon = mon
         self.master = Tk()
@@ -124,8 +127,7 @@ class UI:
             self.keep_as_last_button.config(text=text) 
             self.keep_as_last_button.grid(row=2, column=0, sticky='nsew')
 
-        row = 0
-        column = 0
+        column, row = 0, 0
         for label in FOOD_LABELS:
             button = Button(self.right_bottom_frame, 
                             text=label,
@@ -146,6 +148,9 @@ class UI:
                 row += 1
 
     def refresh_item_buttons(self):
+        """
+        Refreshes the item buttons on the home screen
+        """
         # check if the active screen is the items screen
         # if not, there is nothing to refresh, so do nothing
         if self.active_screen != 'items':
@@ -171,8 +176,7 @@ class UI:
             empty_label.grid(row=0, column=0)
 
         # re-grid the buttons 
-        row = 0
-        column = 0
+        column, row = 0, 0
         for tag in tags_in_fridge:
             days_in_fridge = tag.get_days_in_fridge()
 
@@ -228,7 +232,10 @@ class UI:
             else:
                 column += 1
 
-    def click_label_button(self, tag, label:str):
+    def click_label_button(self, tag: Tag, label: str):
+        """
+        Select a label for the tag and return to the home screen
+        """
         tag.label_contents(label)
         self.return_to_item_screen()  
 
@@ -241,11 +248,17 @@ class UI:
         self.start_item_screen()
 
     def show_open(self):
+        """
+        Displays text on screen to indicate the door is open.
+        """
         text = "Door Open"
         fg = RED
         self.status_label.config(text=text, fg=fg)
         
     def show_closed(self):
+        """
+        Displays text on screen to indicate the door is closed.
+        """
         if self.active_screen != 'items':
             return
         text = "Door Closed" 
@@ -253,6 +266,10 @@ class UI:
         self.status_label.config(text=text, fg=fg)
 
     def start_progress_bar(self):
+        """
+        Puts an indeterminate progress bar on the screen and starts the animation.
+        For indicating that RFID scanning is in progress.
+        """
         text = "Scanning" 
         fg = TEXT_COLOR
         self.status_label.config(text=text, fg=fg)
@@ -262,11 +279,19 @@ class UI:
         self.progress_bar.start(2)
 
     def stop_progress_bar(self):
+        """
+        Stops the progress bar
+        Call this if the animation needs to be interrupted
+        """
         if self.active_screen != 'items' or self.progress_bar is None:
             return
         self.progress_bar.grid_forget()
 
     def start_timer(self):
+        """
+        Spawns a new thread that keeps track of time and periodically 
+        refreshes the screen
+        """
         freq = .1 # seconds
         def thread():
             while self.run:
@@ -278,6 +303,9 @@ class UI:
         Thread(target=thread).start()
 
     def mainloop(self):
+        """
+        Runs the mainloop of the GUI program
+        """
         self.master.mainloop()
 
     def stop(self) -> None:
