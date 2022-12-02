@@ -116,7 +116,8 @@ class UI:
         self.icon_label.grid(row=0, column=0, sticky='nsew')
         self.back_button.place(x=0,y=264)
 
-        # if the tag has been previously inserted
+        # if the tag has been previously inserted, add a "keep as last" button
+        # that allows the user to retain the previous contents and start date
         if tag.previous_label is not None and tag.label is None:
             days_in_fridge = tag.get_previous_days_in_fridge()
             text = f'Keep as:\n{tag.previous_label}\n({days_in_fridge}'
