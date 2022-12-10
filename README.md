@@ -5,15 +5,9 @@
 This repository contains prototype software for FridgeMon, a smart refrigerator system that helps users keep track of food in their fridge, 
 thereby reducing waste. This was my group's final project for our Fabrication and Prototyping class at the [Global Innovation Exchange](https://gixnetwork.org/) in Bellevue, Washington. 
 
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360" />
-  <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360" />
-</p>
-
-
-![](https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png)
+![](https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png)
 :-------------------------:|:-------------------------:
-Solarized dark             |  Solarized Ocean
+Yue Sun, Tim Huff & Anqi Pan at project bazaar |  FridgeMon project poster
 
 <table>
   <tr>
