@@ -14,15 +14,21 @@ The touchscreen displays the contents of the fridge as well as how long each ite
 to newest to help users prioritize what to eat next.
 
 ## Process
+#### Concept
 In our initial sketches, we explored the placement of the touchscreen relative to the fridge. At first, we showed the screen positioned to the side of the fridge, because we imagined that users would scan items (perhaps with a camera) before placing them in the fridge. However, we quickly realized that manually scanning each item is a hassle, so we moved away from this idea. At this point, we began to explore RFID as a means for the system to automatically detect items. We like this idea because it is automatic; the only input required of the user is to label the item on the touchscreen, which we believe is reasonable. 
 (Pictures of initial sketches)
 
-We realized a problem at this point, if the user adds many items to the fridge at once, how can they differentiate the unlabled boxes in order to label them? Until this point, we only considered the workflow for adding a single box, so we hand't considered the complications that arise when multiple boxes are added at once. To solve this, we decided to put unique animal designs on the top of each container, so that even prior to labeling the containers, the user has a way to know which box is which.
-(Screenshot showing multiple unlabled boxes)
+#### Labeling Items
+We realized a problem at this point: if the user adds many items to the fridge at once, how can they differentiate the unlabled boxes in order to label them? Until this point, we only considered the workflow for adding a single box, so we hand't considered the complications that arise when multiple boxes are added at once. To solve this, we decided to put unique animal designs on the top of each container, so that even prior to labeling the containers, the user has a way to know which box is which.
 
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206874659-99be72f1-470d-4e0c-88ef-cbe87851bbad.png" height="300">
+<br><sub>Multiple unlabled boxes, differentiated with animal designs</sub>
+</div>
+
+#### Obtaining a Fridge
 As we started to think towards the final presentation of our prototype, we realized that demoing our system would be difficult without an actual fridge. Of course, we could show a video or demo the system in isolation, but neither of those options seemed great. We decided that showing our system on an actual fridge was a must-have. We went online and found a free (but broken) mini fridge. We didn' need the fridge to work, and we were operating under a budget, so this was perfect for us. It makes our prototype much more convincing. 
-
-(picture of fridge)
+<img src="https://user-images.githubusercontent.com/89954856/206874532-958a3d4a-a37c-4cab-8523-d5ab563ab141.png" height="300">
 
 Now that the basic functionality of the system had been determined, we returned to the question of where to place the touchscreen. Instinctively, we moved it to the door of the fridge, but this presented a problem: the user would be unable to view the screen while the fridge was open. We debated the pros and cons of this for a while. On the hand, perhaps the user shouldn't be looking at the screen while the door is open; encouraging the user to look at the screen while the door is open might waste energy. On the other hand, perhaps users need to see what is on the screen while they are looking inside the fridge, and if they are unable to, this might result in frustration and repeated door opening. In the end, we decided to err on the side of giving the user more information, and 
 
