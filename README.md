@@ -5,6 +5,16 @@
 This repository contains prototype software for FridgeMon, a smart refrigerator system that helps users keep track of food in their fridge, 
 thereby reducing waste. This was my group's final project for our Fabrication and Prototyping class at the [Global Innovation Exchange](https://gixnetwork.org/) in Bellevue, Washington. 
 
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360" />
+  <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360" />
+</p>
+
+
+![](https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png)
+:-------------------------:|:-------------------------:
+Solarized dark             |  Solarized Ocean
+
 <table>
   <tr>
     <td>
@@ -28,6 +38,13 @@ differentiate the containers. When a new container is added to the fridge, the u
 
 The touchscreen displays the contents of the fridge as well as how long each item has been in the fridge. Items are sorted oldest 
 to newest to help users prioritize what to eat next.
+
+<img src="https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png" height="300">
+<br><sub>Multiple unlabled boxes, differentiated with animal designs</sub>
+
+<img src="https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png" height="300">
+<br><sub>Multiple unlabled boxes, differentiated with animal designs</sub>
+
 
 <table>
   <tr>
