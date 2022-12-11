@@ -24,7 +24,7 @@ to newest to help users prioritize what to eat next.
 In our initial sketches, we explored the placement of the touchscreen relative to the fridge. At first, we showed the screen positioned to the side of the fridge, because we imagined that users would scan items (perhaps with a camera) before placing them in the fridge. However, we quickly realized that manually scanning each item is a hassle, so we moved away from this idea. At this point, we began to explore RFID as a means for the system to automatically detect items. We like this idea because it is automatic; the only input required of the user is to label the item on the touchscreen, which we believe is reasonable. 
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206921372-982a620f-bf7c-4fb3-8c1b-4c51ceb37257.png" width="350">
+<img src="https://user-images.githubusercontent.com/89954856/206934471-d11f0e04-8b60-4de8-8248-c5b801e0ca27.png" width="350">
 <br><sub>Concept sketches</sub>
  </div>
 
@@ -35,7 +35,6 @@ We realized a problem at this point: if the user adds many items to the fridge a
 <img src="https://user-images.githubusercontent.com/89954856/206878615-717ee4a1-c4cd-42b5-b086-74c67e27e956.png" width="350">
 <br><sub>Multiple unlabeled boxes, differentiated with animal designs</sub>
  </div>
-
 
 #### Obtaining a Fridge
 As we started to think towards the final presentation of our prototype, we realized that demoing our system would be difficult without an actual fridge. Of course, we could show a video or demo the system in isolation, but neither of those options seemed great. We decided that showing our system on an actual fridge was a must-have. We went online and found a free (but broken) mini fridge. We didn't need the fridge to work, and we were operating on a budget, so this was perfect for us. It makes our prototype much more convincing. 
@@ -140,7 +139,7 @@ Each mechanism is embedded with an RFID tag and has an animal design to help use
 The final piece of the puzzle was to integrate the RFID antenna with our prototype. Most of the affordable RFID antennas on the market are very short-range; users must tap the tag right next to the antenna. For our purposes, we wanted a longer range antenna. We found one that was affordable and seemed like it would work, but unfortunately there were some compatibility issues with it and the RFID tags. In the end, we had to use an antenna that was short range. Although it did work, the user has to put the food item right next to the antenna for it to be detected, which is not ideal. In the interest of having a better demo, we wrote a version of our software that simulates the scanning process and randomly adds and removes food items each time the user closes the door. This simulation was adequate for our prototype and was able to effectively communicate the concept.
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206922238-8e5e03a1-2146-4910-a550-999b83e1c45e.png" width="350">
+<img src="https://user-images.githubusercontent.com/89954856/206934622-e3eccdaa-a61c-43c4-a333-d7da696f5d27.png" width="350">
 <br><sub>RFID receiver in fridge</sub>
 </div>
 
