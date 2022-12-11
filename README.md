@@ -93,7 +93,7 @@ Now that the basic functionality of the system had been determined, we returned 
     <img src="https://user-images.githubusercontent.com/89954856/205183749-ebe33c10-e898-447b-a48f-16283a04357f.png" height="300">
  </p>
 
-
+<!--
 ## Gallery
  <table>
   <tr>
@@ -148,3 +148,4 @@ Yue Sun, Tim Huff & Anqi Pan at project bazaar |  FridgeMon project poster
 ![](https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879484-3355d0da-ddc3-4f2a-8556-a7ad2a43aff0.png)
 :-------------------------:|:-------------------------:|:-------------------------:
 User Testing |  Adding new item to fridge |  Food container with FridgeMon tag
+-->
