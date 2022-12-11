@@ -41,7 +41,7 @@ We realized a problem at this point: if the user adds many items to the fridge a
 As we started to think towards the final presentation of our prototype, we realized that demoing our system would be difficult without an actual fridge. Of course, we could show a video or demo the system in isolation, but neither of those options seemed great. We decided that showing our system on an actual fridge was a must-have. We went online and found a free (but broken) mini fridge. We didn't need the fridge to work, and we were operating on a budget, so this was perfect for us. It makes our prototype much more convincing. 
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206874532-958a3d4a-a37c-4cab-8523-d5ab563ab141.png" width="350">
+<img src="https://user-images.githubusercontent.com/89954856/206933923-c805b4cc-5aaf-4b7c-8c04-d79cc31633fd.png" width="350">
 <br><sub>Mini fridge, acquired online</sub>
 </div>
 
@@ -112,6 +112,8 @@ To write the software, we chose a Python package called [Tkinter](https://docs.p
 
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206924145-285cb3b4-2e08-4def-9080-7c98c1cd70b9.png" width="350">
+<br>
+<img src="https://user-images.githubusercontent.com/89954856/206934334-26768c5d-f3b3-4d6d-a9ef-5f62de30c5a8.png" width="350">
 <br><sub>Final software prototype</sub>
 </div>
 
@@ -146,7 +148,7 @@ The final piece of the puzzle was to integrate the RFID antenna with our prototy
 Our prototype reached a high level of fidelity and communicates an effective and novel approach for reducing food waste in refrigerators. As a next step, we would like to expand the range of the RFID antenna, build more functions into the user interface, such as the ability to scroll, type custom labels with an on-screen keyboard and edit the expiration dates of items. With these additions, we could provide a fully-functional prototype with which we could conduct user testing to gain further insight. 
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206882157-c08b62e7-f4b6-4066-9e9e-aea7b59e5cbd.png" width="350">
+<img src="https://user-images.githubusercontent.com/89954856/206934212-65914080-a0b3-485b-80b6-54d152f48ef4.png" width="350">
 <br><sub>Final FridgeMon prototype</sub>
  </div>
 
