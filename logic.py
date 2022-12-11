@@ -102,15 +102,11 @@ class FridgeMon:
         id_list = []
         for i in range(times):
             sleep(0.03)
-            try:
-                id = self.rfid_reader.read_id_no_block()
-                id = str(id)
-                if (not id in id_list) and (not id == "None") :
-                    id_list.append(id)
-                i+=10
-            finally:
-                a=1
-        
+            id = self.rfid_reader.read_id_no_block()
+            id = str(id)
+            if id not in id_list and id != "None":
+                id_list.append(id)
+
         # add and remove tags from fridge accordingly
         for tag in self.tags.values():
             if not tag.id in id_list:
