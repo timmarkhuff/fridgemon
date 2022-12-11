@@ -2,7 +2,7 @@
 
 ## Overview
 FridgeMon is a smart refrigerator system that helps users keep track of food in their fridge, 
-thereby reducing waste. This was my group's final project for our Fabrication and Prototyping class at the [Global Innovation Exchange](https://gixnetwork.org/) in Bellevue, Washington. 
+thereby reducing waste. This was my group's final project for our Fabrication and Prototyping class at the [Global Innovation Exchange](https://gixnetwork.org/) in Bellevue, Washington. [This short video](https://www.youtube.com/watch?v=WqKrQHDvA54) shows how it works.
 
 <img src="https://user-images.githubusercontent.com/89954856/206921636-751f83c7-815f-4f66-b62d-9b027a2bc186.png" width="350">
  
