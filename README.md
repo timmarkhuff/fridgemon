@@ -1,35 +1,49 @@
 # FridgeMon
-"Reduce waste and take control of your fridge."
+<img src="https://user-images.githubusercontent.com/89954856/206921636-751f83c7-815f-4f66-b62d-9b027a2bc186.png" width="350">
 
 ## Overview
-This repository contains prototype software for FridgeMon, a smart refrigerator system that helps users keep track of food in their fridge, 
+FridgeMon is a smart refrigerator system that helps users keep track of food in their fridge, 
 thereby reducing waste. This was my group's final project for our Fabrication and Prototyping class at the [Global Innovation Exchange](https://gixnetwork.org/) in Bellevue, Washington. 
 
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206882157-c08b62e7-f4b6-4066-9e9e-aea7b59e5cbd.png" width="350">
-<br><sub>Final FridgeMon Prototype</sub>
+<br><sub>Final FridgeMon prototype</sub>
  </div>
 
 ## Solution
 Food containers are equipped with RFID tags that the smart fridge system can read. The user simply adds and removes containers, and the fridge automatically
-knows which containers are in the fridge and how long they have been there. Each container has a unique animal design on top to help the user 
-differentiate the containers. When a new container is added to the fridge, the user has the option to label the contents of that container on the touchscreen.
+detects which containers are in the fridge and how long they have been there. Each container has a unique animal design to help the user 
+differentiate them. When a new container is added to the fridge, the user has the option to label the contents on the touchscreen.
 
-The touchscreen displays the contents of the fridge as well as how long each item has been in the fridge. Items are sorted oldest 
+The touchscreen displays the items in the fridge as well as how long each item has been inside. Items are sorted oldest 
 to newest to help users prioritize what to eat next.
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206921891-df7d1082-0d52-47ff-af62-39ea68fe1963.png" width="350">
+<br><sub>Food container with RFID tag</sub>
+ </div>
+ <br>
+ 
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206922015-09dad921-9f67-4302-9d2c-0a77b1e751f1.png" width="350">
+<br><sub>FridgeMon workflow</sub>
+ </div>
 
 ## Process
 #### Concept
 In our initial sketches, we explored the placement of the touchscreen relative to the fridge. At first, we showed the screen positioned to the side of the fridge, because we imagined that users would scan items (perhaps with a camera) before placing them in the fridge. However, we quickly realized that manually scanning each item is a hassle, so we moved away from this idea. At this point, we began to explore RFID as a means for the system to automatically detect items. We like this idea because it is automatic; the only input required of the user is to label the item on the touchscreen, which we believe is reasonable. 
 
-(Pictures of initial sketches)
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206921372-982a620f-bf7c-4fb3-8c1b-4c51ceb37257.png" width="350">
+<br><sub>Concept sketches</sub>
+ </div>
 
 #### Labeling Items
-We realized a problem at this point: if the user adds many items to the fridge at once, how can they differentiate the unlabled boxes in order to label them? Until this point, we only considered the workflow for adding a single box, so we hand't considered the complications that arise when multiple boxes are added at once. To solve this, we decided to put unique animal designs on the top of each container, so that even prior to labeling the containers, the user has a way to know which box is which.
+We realized a problem at this point: if the user adds many items to the fridge at once, how can they differentiate the unlabeled boxes in order to label them? Until this point, we only considered the workflow for adding a single box, so we hand't considered the complications that arise when multiple boxes are added at once. To solve this, we decided to put unique animal designs on the top of each container, so that even prior to labeling the containers, the user has a way to know which box is which.
 
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206878615-717ee4a1-c4cd-42b5-b086-74c67e27e956.png" width="350">
-<br><sub>Multiple unlabled boxes, differentiated with animal designs</sub>
+<br><sub>Multiple unlabeled boxes, differentiated with animal designs</sub>
  </div>
 
 
@@ -62,7 +76,7 @@ We included two narrows slits into which the touchscreen edges would slide and b
 </div>
 <br>
 
-After our first unsuccessful print, we did two quick test prints to find the exact correct dimensions for the screen slits. Eventually we found the perfect dimensions for a tight fit. For the final print, we switched to white filament to match the color of our fridge
+After our first unsuccessful print, we did two quick test prints to find the exact dimensions for the screen slits. Eventually we found the perfect dimensions for a tight fit. For the final print, we switched to white filament to match the color of our fridge
 
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206882554-5b7057fb-9b30-4146-8240-cc9b977e3a63.png" width="350">
@@ -76,10 +90,26 @@ After our first unsuccessful print, we did two quick test prints to find the exa
 </div>
 
 #### Button for the Door
+Now that we had the touchscreen mounted to the fridge, it was time to add a button to detect when the door opens and closes. We found a spare button lying around from previous projects and used Fusion 360 to design a mount for it. The button snaps into the mount and 3M sticky tape holds the mount to the fridge. There are shallow recess for the sticky tape so that the mount sits flush agains the fridge.
+
+
+
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206923130-7118f2ae-2edc-4cc7-99e8-85c77c618636.png" width="350">
+<br><sub>Mounting a button to the door</sub>
+</div>
 
 #### Software Prototype
 
 #### Creating the Tags
+
+#### Implementing RFID
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206922238-8e5e03a1-2146-4910-a550-999b83e1c45e.png" width="350">
+<br><sub>RFID receiver in fridge</sub>
+</div>
 
 
 ## Software
