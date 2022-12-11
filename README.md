@@ -5,9 +5,16 @@
 This repository contains prototype software for FridgeMon, a smart refrigerator system that helps users keep track of food in their fridge, 
 thereby reducing waste. This was my group's final project for our Fabrication and Prototyping class at the [Global Innovation Exchange](https://gixnetwork.org/) in Bellevue, Washington. 
 
-![](https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png)
-:-------------------------:|:-------------------------:
-Yue Sun, Tim Huff & Anqi Pan at project bazaar |  FridgeMon project poster
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png" height="300">
+<br><sub>Yue Sun, Tim Huff & Anqi Pan at project bazaar</sub>
+ </div>
+ <br>
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png" height="300">
+<br><sub>FridgeMon Project Poster</sub>
+ </div>
 
 ## Solution
 Food containers are equipped with RFID tags that the smart fridge system can read. The user simply adds and removes containers, and the fridge automatically
@@ -16,11 +23,6 @@ differentiate the containers. When a new container is added to the fridge, the u
 
 The touchscreen displays the contents of the fridge as well as how long each item has been in the fridge. Items are sorted oldest 
 to newest to help users prioritize what to eat next.
-
-![](https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879484-3355d0da-ddc3-4f2a-8556-a7ad2a43aff0.png)
-:-------------------------:|:-------------------------:|:-------------------------:
-User Testing |  Adding new item to fridge |  Food container with FridgeMon tag
-
 
 ## Process
 #### Concept
@@ -32,7 +34,7 @@ In our initial sketches, we explored the placement of the touchscreen relative t
 We realized a problem at this point: if the user adds many items to the fridge at once, how can they differentiate the unlabled boxes in order to label them? Until this point, we only considered the workflow for adding a single box, so we hand't considered the complications that arise when multiple boxes are added at once. To solve this, we decided to put unique animal designs on the top of each container, so that even prior to labeling the containers, the user has a way to know which box is which.
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206878615-717ee4a1-c4cd-42b5-b086-74c67e27e956.png" height="300">
+<img src="https://user-images.githubusercontent.com/89954856/206878615-717ee4a1-c4cd-42b5-b086-74c67e27e956.png" height="200">
 <br><sub>Multiple unlabled boxes, differentiated with animal designs</sub>
  </div>
 
@@ -114,3 +116,10 @@ Now that the basic functionality of the system had been determined, we returned 
   </tr>
 </table> 
 
+![](https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png)
+:-------------------------:|:-------------------------:
+Yue Sun, Tim Huff & Anqi Pan at project bazaar |  FridgeMon project poster
+
+![](https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879484-3355d0da-ddc3-4f2a-8556-a7ad2a43aff0.png)
+:-------------------------:|:-------------------------:|:-------------------------:
+User Testing |  Adding new item to fridge |  Food container with FridgeMon tag
