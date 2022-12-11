@@ -17,12 +17,6 @@ differentiate them. When a new container is added to the fridge, the user has th
 
 The touchscreen displays the items in the fridge as well as how long each item has been inside. Items are sorted oldest 
 to newest to help users prioritize what to eat next.
-
-<div>
-<img src="https://user-images.githubusercontent.com/89954856/206921891-df7d1082-0d52-47ff-af62-39ea68fe1963.png" width="350">
-<br><sub>Food container with RFID tag</sub>
- </div>
- <br>
  
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206922015-09dad921-9f67-4302-9d2c-0a77b1e751f1.png" width="350">
@@ -103,7 +97,10 @@ In order to make the prototype functional, we needed to write some software. We 
 * User can see newly added items, and is prompted to label them
 * As time passes, the "days in fridge" count will increment
 
-To write the software, we chose a Python package called Tkinter. It works well with Raspberry Pi and is easy to use. 
+
+To write the software, we chose a Python package called [Tkinter](https://docs.python.org/3/library/tkinter.html). It works well with Raspberry Pi and is easy to use. This GitHub repository contains the following Python files:
+* logic.py: contains the basic logic and tracks the state of the smart refrigerator system.
+* main.py: produces the graphical user interface. Run this file to start the program.
 
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206923667-d19e624c-ae6e-46eb-946f-f8baad5f1ca0.png" width="350">
@@ -123,20 +120,33 @@ To write the software, we chose a Python package called Tkinter. It works well w
 </div>
 
 #### Creating the Tags
+We prototyped 3 different mechanisms for attaching RFID tags to food items, including:
+* glass boxes
+* magnetic clips
+* sealing clips
+
+Each mechanism is embedded with an RFID tag and has an animal design to help users distinguish unlabeled items. We used laser cutting, 3D printing and some store-bought components for this prototyping exercise. 
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206925569-e7168b20-a782-4db2-a011-1a5046d3f71e.png" width="350">
+<br><sub>Sealing clip with RFID tag</sub>
+</div>
+<br>
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206921891-df7d1082-0d52-47ff-af62-39ea68fe1963.png" width="350">
+<br><sub>Food container with RFID tag</sub>
+ </div>
+ <br>
 
 #### Implementing RFID
+The final piece of the puzzle was to integrate the RFID antenna with our prototype. Most of the affordable RFID antennas on the market are very short-range; users must tap the tag right next to the antenna. For our purposes, we wanted a longer range antenna. We found one that was affordable and seemed like it would work, but unfortunately there were some compatibility issues with it and the RFID tags. In the end, we had to use an antenna that was short range. Although it did work, the user has to put the food item right next to the antenna for it to be detected, which is not ideal. In the interest of having a better demo, we wrote a version of our software that simulates the scanning process and randomly adds and removes food items each time the user closes the door. This simulation was adequate for our prototype and was able to effectively communicate the concept.
 
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206922238-8e5e03a1-2146-4910-a550-999b83e1c45e.png" width="350">
 <br><sub>RFID receiver in fridge</sub>
 </div>
 
-
-## Software
-* logic.py: contains the basic logic and tracks the state of the smart refrigerator system.
-* main.py: produces the graphical user interface. Run this file to start the program.
-
-## Hardware
+## Hardware Components
 * Raspberry Pi 4
 * Raspberry Pi 7-inch touchscreen
 * Button (for the refrigerator door)
@@ -150,8 +160,8 @@ To write the software, we chose a Python package called Tkinter. It works well w
 * [Tim Huff](https://www.linkedin.com/in/tim-huff-60a05973/): software development, 3D printing of touchscreen enclosure
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png" width="350">
-<br><sub>Yue Sun, Tim Huff & Anqi Pan at project bazaar</sub>
+<img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" width="350">
+<br><sub>Yue Sun, Tim Huff & Anqi Pan at GIX project bazaar</sub>
  </div>
  <br>
 
