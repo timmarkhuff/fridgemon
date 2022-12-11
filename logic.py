@@ -5,13 +5,13 @@ from time import sleep
 from timeit import default_timer as timer
 from threading import Thread
 import platform
-import RPi.GPIO as GPIO
-from mfrc522 import SimpleMFRC522
 
 # OS-specific imports and initializations
 OS = platform.system()
 if OS == 'Linux':
     import gpiozero
+    import RPi.GPIO as GPIO
+    from mfrc522 import SimpleMFRC522
     rpi_button = gpiozero.Button(4)
 else:
     import keyboard
