@@ -45,7 +45,7 @@ As we started to think towards the final presentation of our prototype, we reali
 <br><sub>Mini fridge, acquired online</sub>
 </div>
 
-#### Protyping the Touchscreen Enclosure
+#### Prototyping the Touchscreen Enclosure
 Now that the basic functionality of the system had been determined, we returned to the question of where to place the touchscreen. Instinctively, we moved it to the door of the fridge, but this presented a problem: the user would be unable to view the screen while the fridge was open. We debated the pros and cons of this for a while. On one hand, perhaps the user shouldn't be looking at the screen while the door is open; this wastes electricity. On the other hand, perhaps users need to see what is on the screen while they are looking inside the fridge, and if they are unable, this might result in frustration and repeated door opening. In the end, we decided to err on the side of giving the user more information and mounted the screen above the door. In the context of our mini fridge, this means putting the screen on top of the fridge, but in a full-sized fridge, this might mean putting it on the freezer door. 
 
 We built the first screen prototypes out of cardboard in order to quickly explore different configurations. We chose to use a Raspberry Pi Touchscreen for our project, so all of the enclosures were built to fit that. After a few iterations of the cardboard prototypes, we had arrived at a concept that we liked. 
@@ -56,7 +56,7 @@ We built the first screen prototypes out of cardboard in order to quickly explor
 </div>
 
 #### 3D Printing the Enclosure
-When it came time to 3D print the touchscreen enclosure, we realized we had to make a few modifications to our design. First, our design was too large to fit on the Ultimaker printer bed in the orientation we wanted. We simplied the design a bit so that it was no longer a full enclosure, but rather a facade, which worked fine for prototyping purposes. 
+When it came time to 3D print the touchscreen enclosure, we realized we had to make a few modifications to our design. First, our design was too large to fit on the Ultimaker printer bed in the orientation we wanted. We simplified the design a bit so that it was no longer a full enclosure, but rather a facade, which worked fine for prototyping purposes. 
 
 We included two narrows slits into which the touchscreen edges would slide and be held tightly in place. Unfortunately in our first 3D print, these slits were a little two narrow, and the screen would not fit. 
 
@@ -80,7 +80,7 @@ After our first unsuccessful print, we did two quick test prints to find the exa
 </div>
 
 #### Button for the Door
-Now that we had the touchscreen mounted to the fridge, it was time to add a button to detect when the door opens and closes. We found a spare button lying around from previous projects and used Fusion 360 to design a mount for it. The button snaps into the mount and 3M sticky tape holds the mount to the fridge. There are shallow recesses for the sticky tape so that the mount sits flush agains the fridge.
+Now that we had the touchscreen mounted to the fridge, it was time to add a button to detect when the door opens and closes. We found a spare button lying around from previous projects and used Fusion 360 to design a mount for it. The button snaps into the mount and 3M sticky tape holds the mount to the fridge. There are shallow recesses for the sticky tape so that the mount sits flush against the fridge.
 
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206923441-3b9a3fd2-74ac-4e90-8623-9b9a77a3a4bd.png" width="350">
@@ -88,7 +88,7 @@ Now that we had the touchscreen mounted to the fridge, it was time to add a butt
 </div>
 
 #### Software Prototype
-In order to make the prototype functional, we needed to write some software. We drew several mockups of the screens and discussed which funtions would be most important to show in our software prototype. In the end, we decided on:
+In order to make the prototype functional, we needed to write some software. We drew several mockups of the screens and discussed which functions would be most important to show in our software prototype. In the end, we decided on:
 * User closes door, FridgeMon scans contents of fridge and adds/removes items from screen accordingly
 * User can see newly added items and is prompted to label them
 * As time passes, the "days in fridge" count will increment
@@ -143,7 +143,7 @@ The final piece of the puzzle was to integrate the RFID antenna with our prototy
 </div>
 
 ## Conclusion
-Our prototype reached a high level of fidelity and communicates an effective and novel approach for reducing food waste in refrigerators. As a next step, we would like to expand the range of the RFID antenna, build more functions into the user interface, such as the ability to scroll, type custom labels with an on-screen keyboard and edit the expiration dates of items. With these additions, we could provide a fully-functional protype with which we could conduct user testing to gain further insight. 
+Our prototype reached a high level of fidelity and communicates an effective and novel approach for reducing food waste in refrigerators. As a next step, we would like to expand the range of the RFID antenna, build more functions into the user interface, such as the ability to scroll, type custom labels with an on-screen keyboard and edit the expiration dates of items. With these additions, we could provide a fully-functional prototype with which we could conduct user testing to gain further insight. 
 
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206882157-c08b62e7-f4b6-4066-9e9e-aea7b59e5cbd.png" width="350">
