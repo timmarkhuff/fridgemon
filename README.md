@@ -5,11 +5,6 @@
 FridgeMon is a smart refrigerator system that helps users keep track of food in their fridge, 
 thereby reducing waste. This was my group's final project for our Fabrication and Prototyping class at the [Global Innovation Exchange](https://gixnetwork.org/) in Bellevue, Washington. 
 
-<div>
-<img src="https://user-images.githubusercontent.com/89954856/206882157-c08b62e7-f4b6-4066-9e9e-aea7b59e5cbd.png" width="350">
-<br><sub>Final FridgeMon prototype</sub>
- </div>
-
 ## Solution
 Food containers are equipped with RFID tags that the smart fridge system can read. The user simply adds and removes containers, and the fridge automatically
 detects which containers are in the fridge and how long they have been there. Each container has a unique animal design to help the user 
@@ -145,6 +140,14 @@ The final piece of the puzzle was to integrate the RFID antenna with our prototy
 <img src="https://user-images.githubusercontent.com/89954856/206922238-8e5e03a1-2146-4910-a550-999b83e1c45e.png" width="350">
 <br><sub>RFID receiver in fridge</sub>
 </div>
+
+## Conclusion
+Our prototype reached a high level of fidelity and communicates an effective and novel approach for reducing food waste in refrigerators. As a next step, we would like to expand the range of the RFID antenna, build more functions into the user interface, such as the ability to scroll, type custom labels with an on-screen keyboard and edit the expiration dates of items. With these additions, we could provide a fully-functional protype with which we could conduct user testing to gain further insight. 
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206882157-c08b62e7-f4b6-4066-9e9e-aea7b59e5cbd.png" width="350">
+<br><sub>Final FridgeMon prototype</sub>
+ </div>
 
 ## Hardware Components
 * Raspberry Pi 4
