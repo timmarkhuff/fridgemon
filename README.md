@@ -6,14 +6,8 @@ This repository contains prototype software for FridgeMon, a smart refrigerator 
 thereby reducing waste. This was my group's final project for our Fabrication and Prototyping class at the [Global Innovation Exchange](https://gixnetwork.org/) in Bellevue, Washington. 
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png" height="300">
-<br><sub>Yue Sun, Tim Huff & Anqi Pan at project bazaar</sub>
- </div>
- <br>
-
-<div>
-<img src="https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png" height="300">
-<br><sub>FridgeMon Project Poster</sub>
+<img src="https://user-images.githubusercontent.com/89954856/206882157-c08b62e7-f4b6-4066-9e9e-aea7b59e5cbd.png" width="350">
+<br><sub>Final FridgeMon Prototype</sub>
  </div>
 
 ## Solution
@@ -34,7 +28,7 @@ In our initial sketches, we explored the placement of the touchscreen relative t
 We realized a problem at this point: if the user adds many items to the fridge at once, how can they differentiate the unlabled boxes in order to label them? Until this point, we only considered the workflow for adding a single box, so we hand't considered the complications that arise when multiple boxes are added at once. To solve this, we decided to put unique animal designs on the top of each container, so that even prior to labeling the containers, the user has a way to know which box is which.
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206878615-717ee4a1-c4cd-42b5-b086-74c67e27e956.png" height="200">
+<img src="https://user-images.githubusercontent.com/89954856/206878615-717ee4a1-c4cd-42b5-b086-74c67e27e956.png" width="350">
 <br><sub>Multiple unlabled boxes, differentiated with animal designs</sub>
  </div>
 
@@ -43,13 +37,49 @@ We realized a problem at this point: if the user adds many items to the fridge a
 As we started to think towards the final presentation of our prototype, we realized that demoing our system would be difficult without an actual fridge. Of course, we could show a video or demo the system in isolation, but neither of those options seemed great. We decided that showing our system on an actual fridge was a must-have. We went online and found a free (but broken) mini fridge. We didn' need the fridge to work, and we were operating under a budget, so this was perfect for us. It makes our prototype much more convincing. 
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206874532-958a3d4a-a37c-4cab-8523-d5ab563ab141.png" height="300">
+<img src="https://user-images.githubusercontent.com/89954856/206874532-958a3d4a-a37c-4cab-8523-d5ab563ab141.png" width="350">
 <br><sub>Mini fridge, acquired online</sub>
 </div>
 
-
 #### Protyping the Touchscreen Enclosure
-Now that the basic functionality of the system had been determined, we returned to the question of where to place the touchscreen. Instinctively, we moved it to the door of the fridge, but this presented a problem: the user would be unable to view the screen while the fridge was open. We debated the pros and cons of this for a while. On the hand, perhaps the user shouldn't be looking at the screen while the door is open; encouraging the user to look at the screen while the door is open might waste energy. On the other hand, perhaps users need to see what is on the screen while they are looking inside the fridge, and if they are unable to, this might result in frustration and repeated door opening. In the end, we decided to err on the side of giving the user more information, and mounted the screen above...
+Now that the basic functionality of the system had been determined, we returned to the question of where to place the touchscreen. Instinctively, we moved it to the door of the fridge, but this presented a problem: the user would be unable to view the screen while the fridge was open. We debated the pros and cons of this for a while. On the hand, perhaps the user shouldn't be looking at the screen while the door is open; encouraging the user to look at the screen while the door is open might waste energy. On the other hand, perhaps users need to see what is on the screen while they are looking inside the fridge, and if they are unable to, this might result in frustration and repeated door opening. In the end, we decided to err on the side of giving the user more information, we and mounted the screen above the door. In the context of our mini fridge, this means putting the screen on top of the fridge, but in a full-sized fridge, this might mean putting it on the freezer door. 
+
+We built the first screen prototypes out of cardboard in order to quickly explore different configurations. We chose to use a Raspberry Pi Touchscreen for our project, so all of the enclosures were built to fit that. After a few iterations of the cardboard prototypes, we had arrived at a concept that we liked. 
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206880983-11837cc1-5734-436c-8528-9c2e7cf51bca.png" width="350">
+<br><sub>Early prototype of screen</sub>
+</div>
+
+#### 3D Printing the Enclosure
+When it came time to 3D print the touchscreen enclosure, we realized we had to make a few modifications to our design. First, our design was too large to fit on the Ultimaker printer bed in the orientation we wanted. We simplied the design a bit so that it was no longer a full enclosure, but rather a facade, which worked fine for prototyping purposes. 
+
+We included two narrows slits into which the touchscreen edges would slide and be held tightly in place. Unfortunately in our first 3D print, these slits were a little two narrow, and the screen would not fit. 
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206882321-f187ec5e-94a3-40f0-a4cd-448f1e397554.png" width="350">
+<br><sub>First 3D Print, doesn't quite fit</sub>
+</div>
+<br>
+
+After our first unsuccessful print, we did two quick test prints to find the exact correct dimensions for the screen slits. Eventually we found the perfect dimensions for a tight fit. For the final print, we switched to white filament to match the color of our fridge
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206882554-5b7057fb-9b30-4146-8240-cc9b977e3a63.png" width="350">
+<br><sub>Test print to confirm dimensions</sub>
+</div>
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206882656-ff0de9ad-65a0-4465-b963-16e0f85f5a09.png" width="350">
+<br><sub>Final print with correct fit and white color</sub>
+</div>
+
+#### Button for the Door
+
+#### Software Prototype
+
+#### Creating the Tags
+
 
 ## Software
 * logic.py: contains the basic logic and tracks the state of the smart refrigerator system.
@@ -67,6 +97,12 @@ Now that the basic functionality of the system had been determined, we returned 
 * [Anqi Pan](https://www.linkedin.com/in/anqipan/): UI/UX design, 3D printing and laser cutting of food tags and containers
 * [Yue Sun](https://www.linkedin.com/in/yuesun1003/): hardware sourcing & implementation (RFID)
 * [Tim Huff](https://www.linkedin.com/in/tim-huff-60a05973/): software development, 3D printing of touchscreen enclosure
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png" height="300">
+<br><sub>Yue Sun, Tim Huff & Anqi Pan at project bazaar</sub>
+ </div>
+ <br>
 
 
 ## Gallery
