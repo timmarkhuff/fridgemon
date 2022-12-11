@@ -9,22 +9,6 @@ thereby reducing waste. This was my group's final project for our Fabrication an
 :-------------------------:|:-------------------------:
 Yue Sun, Tim Huff & Anqi Pan at project bazaar |  FridgeMon project poster
 
-<table>
-  <tr>
-    <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360">
-     <br>
-     <sub>Yue Sun, Tim Huff & Anqi Pan at GIX project bazaar</sub>
-   </td>
-    <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360">
-     <br>
-     <sub>FridgeMon project poster</sub>
-   </td>
-  </tr>
-</table> 
-
-
 ## Solution
 Food containers are equipped with RFID tags that the smart fridge system can read. The user simply adds and removes containers, and the fridge automatically
 knows which containers are in the fridge and how long they have been there. Each container has a unique animal design on top to help the user 
@@ -33,32 +17,10 @@ differentiate the containers. When a new container is added to the fridge, the u
 The touchscreen displays the contents of the fridge as well as how long each item has been in the fridge. Items are sorted oldest 
 to newest to help users prioritize what to eat next.
 
-<img src="https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png" height="300">
-<br><sub>Multiple unlabled boxes, differentiated with animal designs</sub>
+![](https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879484-3355d0da-ddc3-4f2a-8556-a7ad2a43aff0.png)
+:-------------------------:|:-------------------------:|:-------------------------:
+User Testing |  Adding new item to fridge |  Food container with FridgeMon tag
 
-<img src="https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png" height="300">
-<br><sub>Multiple unlabled boxes, differentiated with animal designs</sub>
-
-
-<table>
-  <tr>
-    <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png" height="300">
-     <br>
-     <sub>User Testing</sub>
-   </td>
-    <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png" height="300">
-     <br>
-     <sub>Adding new item to the fridge</sub>
-   </td>
-   <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879484-3355d0da-ddc3-4f2a-8556-a7ad2a43aff0.png" height="300">
-     <br>
-     <sub>Food container with FridgeMon tag</sub>
-   </td>
-  </tr>
-</table> 
 
 ## Process
 #### Concept
@@ -111,6 +73,44 @@ Now that the basic functionality of the system had been determined, we returned 
     <td><img src="https://user-images.githubusercontent.com/89954856/205183749-ebe33c10-e898-447b-a48f-16283a04357f.png" height="300"></td>
     <td><img src="https://user-images.githubusercontent.com/89954856/205183749-ebe33c10-e898-447b-a48f-16283a04357f.png" height="300"></td>
     <td><img src="https://user-images.githubusercontent.com/89954856/205183749-ebe33c10-e898-447b-a48f-16283a04357f.png" height="300"></td>
+  </tr>
+</table> 
+
+
+
+<table>
+  <tr>
+    <td>
+     <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360">
+     <br>
+     <sub>Yue Sun, Tim Huff & Anqi Pan at GIX project bazaar</sub>
+   </td>
+    <td>
+     <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360">
+     <br>
+     <sub>FridgeMon project poster</sub>
+   </td>
+  </tr>
+</table> 
+
+
+<table>
+  <tr>
+    <td>
+     <img src="https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png" height="300">
+     <br>
+     <sub>User Testing</sub>
+   </td>
+    <td>
+     <img src="https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png" height="300">
+     <br>
+     <sub>Adding new item to the fridge</sub>
+   </td>
+   <td>
+     <img src="https://user-images.githubusercontent.com/89954856/206879484-3355d0da-ddc3-4f2a-8556-a7ad2a43aff0.png" height="300">
+     <br>
+     <sub>Food container with FridgeMon tag</sub>
+   </td>
   </tr>
 </table> 
 
