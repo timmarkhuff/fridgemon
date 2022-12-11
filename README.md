@@ -48,8 +48,8 @@ As we started to think towards the final presentation of our prototype, we reali
 </div>
 
 
-#### Obtaining a Fridge
-Now that the basic functionality of the system had been determined, we returned to the question of where to place the touchscreen. Instinctively, we moved it to the door of the fridge, but this presented a problem: the user would be unable to view the screen while the fridge was open. We debated the pros and cons of this for a while. On the hand, perhaps the user shouldn't be looking at the screen while the door is open; encouraging the user to look at the screen while the door is open might waste energy. On the other hand, perhaps users need to see what is on the screen while they are looking inside the fridge, and if they are unable to, this might result in frustration and repeated door opening. In the end, we decided to err on the side of giving the user more information, and 
+#### Protyping the Touchscreen Enclosure
+Now that the basic functionality of the system had been determined, we returned to the question of where to place the touchscreen. Instinctively, we moved it to the door of the fridge, but this presented a problem: the user would be unable to view the screen while the fridge was open. We debated the pros and cons of this for a while. On the hand, perhaps the user shouldn't be looking at the screen while the door is open; encouraging the user to look at the screen while the door is open might waste energy. On the other hand, perhaps users need to see what is on the screen while they are looking inside the fridge, and if they are unable to, this might result in frustration and repeated door opening. In the end, we decided to err on the side of giving the user more information, and mounted the screen above...
 
 ## Software
 * logic.py: contains the basic logic and tracks the state of the smart refrigerator system.
