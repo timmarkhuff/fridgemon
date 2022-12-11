@@ -5,6 +5,8 @@ from time import sleep
 from timeit import default_timer as timer
 from threading import Thread
 import platform
+import RPi.GPIO as GPIO
+from mfrc522 import SimpleMFRC522
 
 # OS-specific imports and initializations
 OS = platform.system()
@@ -42,6 +44,10 @@ class FridgeMon:
     of the FridgeMon system
     """
     def __init__(self):
+        # Define the RFID reader, for Raspberry Pi only
+        if OS == 'Linux':
+            self.rfid_reader = SimpleMFRC522()
+        
         # create Tag objects from csv
         self.tags = {}
         with open('tags.csv') as f:
@@ -87,6 +93,31 @@ class FridgeMon:
 
         # sleep a random amount of time to simulate scanning
         sleep(random.randint(1,2))
+
+    def scan_contents(self, times=50):
+        """
+        Uses the actual RFID reader to scan for tags
+        """
+        # scan for tags
+        id_list = []
+        for i in range(times):
+            sleep(0.03)
+            try:
+                id = self.rfid_reader.read_id_no_block()
+                id = str(id)
+                if (not id in id_list) and (not id == "None") :
+                    id_list.append(id)
+                i+=10
+            finally:
+                a=1
+        
+        # add and remove tags from fridge accordingly
+        for tag in self.tags.values():
+            if not tag.id in id_list:
+                tag.remove_from_fridge()
+            else:
+                tag.add_to_fridge(simulate_today())
+                
 
 class Tag:
     """
