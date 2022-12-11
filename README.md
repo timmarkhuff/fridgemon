@@ -90,17 +90,37 @@ After our first unsuccessful print, we did two quick test prints to find the exa
 </div>
 
 #### Button for the Door
-Now that we had the touchscreen mounted to the fridge, it was time to add a button to detect when the door opens and closes. We found a spare button lying around from previous projects and used Fusion 360 to design a mount for it. The button snaps into the mount and 3M sticky tape holds the mount to the fridge. There are shallow recess for the sticky tape so that the mount sits flush agains the fridge.
-
-
-
+Now that we had the touchscreen mounted to the fridge, it was time to add a button to detect when the door opens and closes. We found a spare button lying around from previous projects and used Fusion 360 to design a mount for it. The button snaps into the mount and 3M sticky tape holds the mount to the fridge. There are shallow recesses for the sticky tape so that the mount sits flush agains the fridge.
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206923130-7118f2ae-2edc-4cc7-99e8-85c77c618636.png" width="350">
+<img src="https://user-images.githubusercontent.com/89954856/206923441-3b9a3fd2-74ac-4e90-8623-9b9a77a3a4bd.png" width="350">
 <br><sub>Mounting a button to the door</sub>
 </div>
 
 #### Software Prototype
+In order to make the prototype functional, we needed to write some software. We drew several mockups of the screens and discussed which funtions would be most important to show in our software prototype. In the end, we decided on:
+* User closes door, FridgeMon scans contents of fridge and adds/removes items from screen accordingly
+* User can see newly added items, and is prompted to label them
+* As time passes, the "days in fridge" count will increment
+
+To write the software, we chose a Python package called Tkinter. It works well with Raspberry Pi and is easy to use. 
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206923667-d19e624c-ae6e-46eb-946f-f8baad5f1ca0.png" width="350">
+<br><sub>Mockup of UI</sub>
+</div>
+<br>
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206924009-fa1db2dd-a534-42d6-b57a-a2390d1f5ebb.png" width="350">
+<br><sub>FridgeMon code, using Tkinter</sub>
+</div>
+<br>
+
+<div>
+<img src="https://user-images.githubusercontent.com/89954856/206924145-285cb3b4-2e08-4def-9080-7c98c1cd70b9.png" width="350">
+<br><sub>Final software prototype</sub>
+</div>
 
 #### Creating the Tags
 
@@ -159,60 +179,3 @@ Now that we had the touchscreen mounted to the fridge, it was time to add a butt
     <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="300">
     <img src="https://user-images.githubusercontent.com/89954856/205183749-ebe33c10-e898-447b-a48f-16283a04357f.png" height="300">
  </p>
-
-<!--
-## Gallery
- <table>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/89954856/205183749-ebe33c10-e898-447b-a48f-16283a04357f.png" height="300"></td>
-    <td><img src="https://user-images.githubusercontent.com/89954856/205183749-ebe33c10-e898-447b-a48f-16283a04357f.png" height="300"></td>
-    <td><img src="https://user-images.githubusercontent.com/89954856/205183749-ebe33c10-e898-447b-a48f-16283a04357f.png" height="300"></td>
-  </tr>
-</table> 
-
-
-
-<table>
-  <tr>
-    <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360">
-     <br>
-     <sub>Yue Sun, Tim Huff & Anqi Pan at GIX project bazaar</sub>
-   </td>
-    <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879009-ba4da4e0-003e-4351-bfb1-fca19fe51f18.png" height="360">
-     <br>
-     <sub>FridgeMon project poster</sub>
-   </td>
-  </tr>
-</table> 
-
-
-<table>
-  <tr>
-    <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png" height="300">
-     <br>
-     <sub>User Testing</sub>
-   </td>
-    <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png" height="300">
-     <br>
-     <sub>Adding new item to the fridge</sub>
-   </td>
-   <td>
-     <img src="https://user-images.githubusercontent.com/89954856/206879484-3355d0da-ddc3-4f2a-8556-a7ad2a43aff0.png" height="300">
-     <br>
-     <sub>Food container with FridgeMon tag</sub>
-   </td>
-  </tr>
-</table> 
-
-![](https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png)
-:-------------------------:|:-------------------------:
-Yue Sun, Tim Huff & Anqi Pan at project bazaar |  FridgeMon project poster
-
-![](https://user-images.githubusercontent.com/89954856/206879326-ac4f6859-0e07-41be-9bb1-bc72c847290c.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879345-5193f48d-fef9-4fc7-89ba-9f3c8b84a0ba.png)  |  ![](https://user-images.githubusercontent.com/89954856/206879484-3355d0da-ddc3-4f2a-8556-a7ad2a43aff0.png)
-:-------------------------:|:-------------------------:|:-------------------------:
-User Testing |  Adding new item to fridge |  Food container with FridgeMon tag
--->
