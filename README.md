@@ -100,7 +100,7 @@ After our first unsuccessful print, we did two quick test prints to find the exa
 * [Tim Huff](https://www.linkedin.com/in/tim-huff-60a05973/): software development, 3D printing of touchscreen enclosure
 
 <div>
-<img src="https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png" height="300">
+<img src="https://user-images.githubusercontent.com/89954856/206879927-0f4b7fb6-23af-4b48-9c42-33371dc0baa8.png" width="350">
 <br><sub>Yue Sun, Tim Huff & Anqi Pan at project bazaar</sub>
  </div>
  <br>
