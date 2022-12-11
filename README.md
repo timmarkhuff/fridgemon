@@ -68,6 +68,7 @@ After our first unsuccessful print, we did two quick test prints to find the exa
 <img src="https://user-images.githubusercontent.com/89954856/206882554-5b7057fb-9b30-4146-8240-cc9b977e3a63.png" width="350">
 <br><sub>Test print to confirm dimensions</sub>
 </div>
+<br>
 
 <div>
 <img src="https://user-images.githubusercontent.com/89954856/206882656-ff0de9ad-65a0-4465-b963-16e0f85f5a09.png" width="350">
